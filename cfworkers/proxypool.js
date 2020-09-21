@@ -1,5 +1,6 @@
 // 修改为你自己的域名
 const domain = 'example.com';
+const token = '1234567890abc';
 
 // 后面内容无需进行任何修改
 const upstream = 'zll.us';
@@ -25,7 +26,7 @@ async function fetchAndApply(request) {
     let new_request_headers = new Headers();
     new_request_headers.set('Host', upstream);
     new_request_headers.set('Referer', url.href);
-    new_request_headers.set('User-Agent', domain);
+    new_request_headers.set('User-Agent', domain + token);
 
     let original_response = await fetch(url.href, {
         method: request.method,
